@@ -1,38 +1,191 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color:crimson;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0.75rem;
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+}
+
+.team-indicator-container {
+  grid-column: span 4;
+  display: flex;
+}
+
+.team-indicator-container div {
+  width: 50%;
+  color: white;
+  border-bottom: 2px solid white;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  margin: 0 1rem 1rem;
+}
+
+.player-grid {
+  display: grid;
+  text-align: center;
+  grid-template-rows: 2rem repeat(auto-fill, 1rem);
+  gap: 0.5rem;
+  border-right: 2px solid white;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.player-grid:last-child {
+  border-right: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.player-grid input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  color: white;
+  text-transform: uppercase;
+}
+
+.player-grid input::placeholder {
+  color: white;
+}
+
+.add-point-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+  margin: 0.75rem;
+  padding: 0.75rem;
+  position: relative;
+  max-width: 600px;
+}
+
+.input-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 2rem;
+  gap: 1rem;
+}
+
+.input-container input {
+  background: transparent;
+  border: 1px solid white;
+  width: 100%;
+  text-align: center;
+  outline: none;
+  color: white;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 1rem 0 0.75rem;
+}
+
+.calculate-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 0.5rem;
+}
+
+.button-container button, .calculate-button-container button {
+  padding: 0.25rem 1rem;
+  border-radius: 2rem;
+  border: none;
+}
+
+.main-score-table-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+
+.score-table-container {
+  width: 90vw;
+  height: 40vh;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+  box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  position: relative;
+  max-width: 600px;
+}
+
+.team-container {
+  width: 50%;
+  border-radius: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 0.5rem;
+}
+
+.team-score-container, .player-score-container {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.team-score-container div:first-child, .player-score-container div:first-child {
+  color: crimson;
+  border-bottom: 1px solid crimson;
+  padding: 0.5rem 3rem;
+  margin: 0 0 0.5rem;
+}
+
+.player-score-container {
+  grid-column: span 1;
+}
+
+.player-score-container div:first-child {
+  padding: 0.5rem 1rem;
+}
+
+.score-table-close-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.7rem;
+}
+
+.hide {
+  display: none;
+}
+
+.undo-icon {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  color: whitesmoke;
+}
+
+.refresh-icon {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  color: whitesmoke;
 }
